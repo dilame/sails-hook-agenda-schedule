@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '6'
+deploy:
+  provider: npm
+  email: misterjt@mail.ru
+  api_key:
+    secure: MQWvV72ZbguHGdK1PV+pl5Ut5XPE1PkCwSQhdbd+n9iOG0ZrxqhbN7LU9UmSf7/qEuokqMJnSUhRFaERk6oblaH5iixD/DJpLkv8U/nTDBDA8/KNSS4EQkmPigbNcNSbIBnGR9vszGpGfy6IuD+hFqmoqxow9FKU5EjhuxXcXxyxjtM2hpxqZbUpf2K7xlK6hxF+9MydvekHWW6M59fOG3TYCkyif5MFK5OvSNTrCsFkWvD2lc45aIuAWCsY4duWjsu9zJgopYqVO0idAmE16Aht4o1akJOe3cbM4rfpmzPGNvrhRZgrX8I09MZlBi5Ygw+/dZUx730e9cNU+0PsYQbRolqwHh//rJBzCJWvjY1txbqJC/9GnQtoYUMWRmpFRvenLOMotSdnrNRafRmvEZaaksAop/My8eWG37K8awx7saychWGxswdgfOi3ybS0IpoUWOD9N8Z09xD+e6kEELeVWk2pXZJKkGH47xT+jlnnEHbISPxaNLvbVb2raAe586C/AenQEFxI4hMT4i/fUW9AclnEkkCfCbRfXa5vefhi+FZYjyYJsi8AYCGr28Rbt9JbXGmQM6F9ibAn6nnoc/hz8tuIju9hyUuGuMpnZuh+jiEYGArTbph8X9YdkNIVx0erwW97El1xMxF99X/5HMVpqjMdtjI2m0IPrRbrfbU=
+  on:
+    tags: true
+    repo: dilame/sails-hook-agenda-schedule
