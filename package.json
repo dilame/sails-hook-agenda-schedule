@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-agenda-schedule",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sails hook for working with agenda and keep jobs in api/agenda directory.",
   "repository": {
     "type": "git",

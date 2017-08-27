@@ -17,18 +17,16 @@ module.exports = function SailsHookAgenda(sails) {
     },
     initialize(done) {
       const config = sails.config[this.configKey];
-      sails.after('lifted', () => {
-        this.agenda = new Agenda();
-        this.agenda
-          .database(config.url, config.collection)
-          .name(config.name)
-          .processEvery(config.processEvery)
-          .maxConcurrency(config.maxConcurrency)
-          .defaultConcurrency(config.defaultConcurrency)
-          .defaultLockLifetime(config.defaultLockLifetime);
-        this.agenda.on('ready', () => this.initAllJobs());
-        this.agenda.start();
-      });
+      this.agenda = new Agenda();
+      this.agenda
+        .database(config.url, config.collection)
+        .name(config.name)
+        .processEvery(config.processEvery)
+        .maxConcurrency(config.maxConcurrency)
+        .defaultConcurrency(config.defaultConcurrency)
+        .defaultLockLifetime(config.defaultLockLifetime);
+      this.agenda.on('ready', () => this.initAllJobs());
+      sails.after('lifted', () => this.agenda.start());
       sails.on('lower', this.stop);
       sails.on('lowering', this.stop);
       done();
