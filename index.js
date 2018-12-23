@@ -26,9 +26,11 @@ module.exports = function SailsHookAgenda(sails) {
         .defaultConcurrency(config.defaultConcurrency)
         .defaultLockLifetime(config.defaultLockLifetime);
       this.agenda.on('ready', () => this.initAllJobs());
-      sails.after('lifted', () => this.agenda.start());
-      sails.on('lower', () => this.stop());
-      sails.on('lowering', () => this.stop());
+      sails.after('lifted', () => {
+        this.agenda.start();
+        sails.on('lower', () => this.stop());
+        sails.on('lowering', () => this.stop());
+      });
       done();
     },
     initAllJobs() {
